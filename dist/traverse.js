@@ -9,7 +9,7 @@ async function getServerList(ns) {
 const TRAVERSE_NAME = "traverse.js";
 const TRAVERSE_URL =
   "https://raw.githubusercontent.com/stringus1/bitburner-files/master/traverse.js";
-const TRAVERSE_RAM = 5.9;
+const TRAVERSE_RAM = 5.5;
 const PAYLOAD_NAME = "hacker.js";
 const PAYLOAD_URL =
   "https://raw.githubusercontent.com/stringus1/bitburner-files/master/hacker.js";
