@@ -1,0 +1,11 @@
+{  
+    "include": ["./src/*"],
+    "exclude": ["node_modules", "bitburner"],
+    "compilerOptions": {
+        "target": "ESNext",
+        "outDir": "./dist",
+        "lib": [
+            "ES2017"
+        ]
+    }
+}
