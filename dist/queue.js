@@ -25,7 +25,7 @@
          } // will print 0 1 3 4 5
          x.trim(); // (optional) optimizes memory usage
  */
-'use strict';
+"use strict";
 var defaultcomparator = function (a, b) {
     return a < b;
 };
@@ -134,7 +134,7 @@ FastPriorityQueue.prototype._removeAt = function (index) {
 // return true if removed, false otherwise.
 FastPriorityQueue.prototype.remove = function (myval) {
     for (var i = 0; i < this.size; i++) {
-        if (!this.compare(this.array[i], myval) && !this.compare(myval, this.array[i])) {
+        if (this.array[i] === myval) {
             // items match, comparator returns false both ways, remove item
             this._removeAt(i);
             return true;
@@ -257,7 +257,7 @@ FastPriorityQueue.prototype.isEmpty = function () {
 //   };
 // }
 FastPriorityQueue.prototype.forEach = function (callback) {
-    if (this.isEmpty() || typeof callback != 'function')
+    if (this.isEmpty() || typeof callback != "function")
         return;
     var i = 0;
     var fpq = this.clone();

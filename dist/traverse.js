@@ -15,7 +15,10 @@ const PAYLOAD_RAM = 3.25;
 /** @param {NS} ns */
 export async function main(ns) {
     const currentHost = ns.getHostname();
-    const blacklist = ns.args.map((elem) => elem.toString()).concat(currentHost);
+    let blacklist = ns.args.map((elem) => elem.toString());
+    if (!blacklist.includes("home")) {
+        blacklist = ["home", ...blacklist];
+    }
     const serverList = ns.scan().filter((host) => !blacklist.includes(host));
     ns.tprint(`${currentHost}:${ns.getScriptName()}: ${serverList}`);
     for (let hostname of serverList) {
@@ -23,7 +26,7 @@ export async function main(ns) {
         await ns.wget(PAYLOAD_URL, PAYLOAD_NAME, hostname);
         // await ns.scp(ns.getScriptName(), hostname)
         // await ns.scp(PAYLOAD_NAME, hostname)
-        ns.exec(TRAVERSE_NAME, hostname, 1, ...blacklist);
+        ns.exec(TRAVERSE_NAME, hostname, 1, hostname, ...blacklist);
     }
     for (let port of [
         ns.ftpcrack,

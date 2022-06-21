@@ -4,6 +4,6 @@ import { shortestPath } from "./djikstra";
 export async function main(ns) {
     const host = ns.getHostname();
     const servers = await netmap(ns);
-    const path = shortestPath(servers, ns.args[0], host);
+    const path = shortestPath(ns, servers, ns.args[0], host);
     ns.tprint(path.join(" -> "));
 }
