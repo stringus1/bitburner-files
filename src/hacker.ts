@@ -10,11 +10,8 @@ export async function main(ns) {
     while (ns.hackAnalyzeChance(host) < 0.4) {
       await ns.weaken(host);
     }
-    for (let i = 0; i < 3; i++) {
-      if (ns.getServerMoneyAvailable(host) / ns.getServerMaxMoney(host) > 0.1)
-        break;
+    if (ns.getServerMoneyAvailable(host) / ns.getServerMaxMoney(host) > 0.1)
       await ns.grow(host);
-    }
     await ns.hack(host);
   }
 }
