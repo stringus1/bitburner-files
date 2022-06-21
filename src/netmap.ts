@@ -17,7 +17,6 @@ const KEYS: MapServerKey[] = [
 
 /** @param {NS} ns */
 export async function main(ns: NS) {
-  ns.tprint(ns.args);
   const argData = ns.flags([
     ["filters", ""],
     ["sorts", ""],

@@ -10,7 +10,6 @@ const KEYS = [
 ];
 /** @param {NS} ns */
 export async function main(ns) {
-    ns.tprint(ns.args);
     const argData = ns.flags([
         ["filters", ""],
         ["sorts", ""],
