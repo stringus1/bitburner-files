@@ -45,7 +45,7 @@ export async function main(ns: NS): Promise<any> {
 
 	const [ total, used ] = ns.getServerRam(currentHost);
 	const free = total - used + TRAVERSE_RAM;
-	const threads = Math.floor(free/PAYLOAD_RAM)
+	const threads = Math.floor(free/PAYLOAD_RAM);
 	
 	ns.spawn(PAYLOAD_NAME, threads, ...blacklist)
 	//ns.exec(SCRIPT_NAME, currentHost, 1, ...blacklist)
